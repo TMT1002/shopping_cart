@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "muSdTvHXLmgK5Bft708KsVeL3d43XcOxrGlhwl5aWSOJXrE5itaSmJkWkES0HmPWHq8r1Mkr8oPZ7JI+5bnWZg==",
+  "dgSpecHash": "b8XfPAF+V2avRix4qme6wjFv0iOuN4N75UlKqwHjPUYIBQgpHnJbgNtYmG0kp9G6jIyu4OiPhPlJNvi6piEqHQ==",
   "success": true,
-  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\Web.csproj",
+  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\Web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\google.api.commonprotos\\2.9.0\\google.api.commonprotos.2.9.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\google.protobuf\\3.22.0\\google.protobuf.3.22.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.4\\microsoft.aspnetcore.authentication.jwtbearer.6.0.4.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

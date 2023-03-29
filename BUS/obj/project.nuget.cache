@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "qxf1FwB6Kw06AU0HkvUEaM69b4s5sTsUuflc6zjPXCSd8pAVjKhgR8UOqC4fUQB0s4DuI8mOVOSPn/L88rpMGA==",
+  "dgSpecHash": "wsT7rwECQ+vDVWou1YE+58SfywKc2iqF45BssaeiIS41kovRY85dQE0VPM+A8bVjDUaNZKMLePQloAV/6N7d7w==",
   "success": true,
-  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj",
+  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\google.api.commonprotos\\2.9.0\\google.api.commonprotos.2.9.0.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\google.protobuf\\3.22.0\\google.protobuf.3.22.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",

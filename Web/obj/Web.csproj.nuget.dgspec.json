@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\Web.csproj": {}
+    "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\Web.csproj": {}
   },
   "projects": {
-    "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj": {
+    "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj",
+        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj",
         "projectName": "BUS",
-        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj",
+        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\obj\\",
+        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj": {
-                "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj"
+              "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj": {
+                "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj"
               }
             }
           }
@@ -43,6 +43,16 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            },
+            "Google.Api.CommonProtos": {
+              "target": "Package",
+              "version": "[2.9.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -63,14 +73,14 @@
         }
       }
     },
-    "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj": {
+    "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj",
+        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\obj\\",
+        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -144,14 +154,14 @@
         }
       }
     },
-    "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\Web.csproj": {
+    "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\Web.csproj",
+        "projectUniqueName": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\Web.csproj",
         "projectName": "Web",
-        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\Web.csproj",
+        "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\Web.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\Web\\obj\\",
+        "outputPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -168,8 +178,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj": {
-                "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\BUS\\BUS.csproj"
+              "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj": {
+                "projectPath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\BUS\\BUS.csproj"
               }
             }
           }
@@ -184,6 +194,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",

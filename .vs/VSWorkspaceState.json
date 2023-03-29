@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\BUS",
+    "\\DAL",
+    "\\DAL\\Utilities",
+    "\\DAL\\Utilities\\Response"
+  ],
+  "SelectedNode": "\\DAL\\Utilities\\Response\\RegisterResponse.cs",
+  "PreviewInSolutionExplorer": false
+}

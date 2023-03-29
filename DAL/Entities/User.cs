@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Entities
 {
+    public enum Role
+    {
+        ADMIN,
+        USER
+    }
     public class User
     {
         [Key]
@@ -30,6 +35,8 @@ namespace DAL.Entities
         public Boolean verifyContact { get; set; }
         [DefaultValue(false)]
         public Boolean verifyEmail { get; set; }
+        [DefaultValue(Role.USER)]
+        public Role role { get; set; }
         public string? verifyEmailToken { get; set; }
         public string? verifyContactToken { get; set; }
         public string? forgotPasswordToken { get; set; }

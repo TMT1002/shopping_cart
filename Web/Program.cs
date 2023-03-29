@@ -1,8 +1,13 @@
-
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using BUS.IServices;
+using BUS.Services;
 using DAL;
-
+using DAL.DALServices;
+using DAL.IDALServices;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using System.Text;
 using Web.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,8 +23,24 @@ builder.Services.AddDbContext<ShoppingCartContext>(
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("DB1"))
     );
 
+builder.Services.AddScoped<IQLUserService,QLUserService>();
+builder.Services.AddScoped<IUserService,UserService>();
 
-
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidateAudience = true,
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            RequireExpirationTime = true,
+            ValidateLifetime = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+            RequireSignedTokens = true,
+        };
+    });
 
 var app = builder.Build();
 
@@ -42,7 +63,7 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 

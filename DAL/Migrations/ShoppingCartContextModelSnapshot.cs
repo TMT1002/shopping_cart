@@ -345,6 +345,9 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<int>("role")
+                        .HasColumnType("integer");
+
                     b.Property<string>("userName")
                         .IsRequired()
                         .HasMaxLength(50)

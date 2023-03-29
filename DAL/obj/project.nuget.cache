@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4JQNfhXf4LcPRllA5Ybs7fu5NycGzP+09OWANwyeItd2A1t1gz+pWe11TeJ7QmkwYblbw+rhrfeNAhCgmvcxOg==",
+  "dgSpecHash": "Fw9qiC+o9rHk62lFiNzD/828tKAjkpPsvU1UKps9etBXMI23LJjVLuKo9L1N5S2Bndqa3WhQZigemb/RegBLyg==",
   "success": true,
-  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\ThreeLayer\\DAL\\DAL.csproj",
+  "projectFilePath": "D:\\FPT_Fresher\\C#\\Mock1\\Shoppingcart\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Admin\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

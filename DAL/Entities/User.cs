@@ -40,7 +40,7 @@ namespace DAL.Entities
         public string? verifyEmailToken { get; set; }
         public string? verifyContactToken { get; set; }
         public string? forgotPasswordToken { get; set; }
-        public ICollection<Token>? tokens {get; set; }
+        public virtual ICollection<Token>? tokens {get; set; }
         public ICollection<Review>? reviews { get; set; }
         public ICollection<Order>? orders { get; set; }
         public ICollection<ProductsOfCart>? productsOfCart { get; set; }

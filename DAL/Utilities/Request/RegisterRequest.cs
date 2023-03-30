@@ -10,14 +10,9 @@ namespace DAL.Utilities.Request
 {
     public class RegisterRequest
     {
-        [Required]
-        [StringLength(50)]
         public string? userName { get; set; }
-        [Required]
         public string? password { get; set; }
-        [Required]
         public string? email { get; set; }
-        [Required]
         public string? phoneNumber { get; set; }
     }
 }

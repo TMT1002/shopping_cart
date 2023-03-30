@@ -1,4 +1,5 @@
 ﻿using DAL.Entities;
+using DAL.Utilities.Support;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,9 @@ namespace DAL.Utilities.Response
 {
     public class LoginResponse
     {
-        public User? user { get; set; }
+        public UserLoginResponse? user { get; set; }
         public string? message { get; set; }
-        public string? token { get; set; }
+        public string? accessToken { get; set; }
+        public string? refreshToken { get; set; }
     }
 }

@@ -22,9 +22,10 @@ builder.Services.AddControllers();
 builder.Services.AddDbContext<ShoppingCartContext>(
     o => o.UseNpgsql(builder.Configuration.GetConnectionString("DB1"))
     );
-
+builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IQLUserService,QLUserService>();
 builder.Services.AddScoped<IUserService,UserService>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

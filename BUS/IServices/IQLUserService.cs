@@ -14,5 +14,6 @@ namespace BUS.IServices
     {
         Task Register(RegisterRequest user);
         Task<LoginResponse> Login(LoginRequest login);
+        Task<LogoutResponse> Logout(int userId);
     }
 }

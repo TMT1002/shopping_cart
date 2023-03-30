@@ -9,15 +9,14 @@ namespace Web.Controllers
 {
     [Route("[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class AuthController : Controller
     {
         private readonly IQLUserService _qLUserService;
         
-        public UserController(IQLUserService qLUserService)
+        public AuthController(IQLUserService qLUserService)
         {
             _qLUserService = qLUserService;
         }
-        [Authorize]
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterRequest newUser)
         {
@@ -44,6 +43,19 @@ namespace Web.Controllers
             try
             {
                 var account = await _qLUserService.Login(login);
+                return Ok(account);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout([FromBody] LogoutRequest logout)
+        {
+            try
+            {
+                var account = await _qLUserService.Logout(logout.userId);
                 return Ok(account);
             }
             catch (Exception ex)

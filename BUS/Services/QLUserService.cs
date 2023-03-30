@@ -1,30 +1,36 @@
 ﻿using BUS.IServices;
+using DAL.DALServices;
 using DAL.Entities;
 using DAL.Exceptions;
 using DAL.IDALServices;
 using DAL.Utilities.Request;
 using DAL.Utilities.Response;
+using DAL.Utilities.Support;
 using Google.Api;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace BUS.Services
 {
     public class QLUserService: IQLUserService
     {
         private readonly IUserService _userService;
+        private readonly ITokenService _tokenService;
         IConfiguration _configuration;
-        public QLUserService(IUserService userService, IConfiguration configuration)
+        public QLUserService(IUserService userService, IConfiguration configuration, ITokenService tokenService)
         {
             _userService = userService;
             _configuration = configuration;
+            _tokenService = tokenService;
         }
         public async Task Register(RegisterRequest newUser)
         {
@@ -41,36 +47,75 @@ namespace BUS.Services
             await _userService.CreateUser(user);
         }
 
-        public Task<LoginResponse> Login(LoginRequest login)
+        public async Task<LoginResponse> Login(LoginRequest login)
         {
-            var account = _userService.FindAccountByEmail(login.email);
-            if (account.Result == null) { throw new AccountNotFoundException(); }
-            if(!BCrypt.Net.BCrypt.Verify(login.password, account.Result.password)) 
+            var account = await _userService.FindAccountByEmail(login.email);
+            if (account == null) { throw new AccountNotFoundException(); }
+            if(!BCrypt.Net.BCrypt.Verify(login.password, account.password)) 
             {
                 throw new PasswordIsWrongException();
             }
             var signingCredential = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"])), SecurityAlgorithms.HmacSha256);
+            var signingTokenCredential = new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:RefreshTokenKey"])), SecurityAlgorithms.HmacSha256);
             var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Email, account.Result.email),
-                    new Claim("Id", account.Result.id.ToString()),
-                    new Claim(ClaimTypes.Role, account.Result.role.ToString()),
+                    new Claim(ClaimTypes.Email, account.email),
+                    new Claim("Id", account.id.ToString()),
+                    new Claim(ClaimTypes.Role, account.role.ToString()),
                 };
-            var token = new JwtSecurityToken(
+            var access = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
                 expires:DateTime.Now.AddMinutes(10),
                 signingCredentials: signingCredential,
                 claims: claims
                 );
-            string accessToken = new JwtSecurityTokenHandler().WriteToken(token);
+            var refresh = new JwtSecurityToken(
+                expires: DateTime.Now.AddDays(10),
+                signingCredentials: signingTokenCredential,
+                claims: claims
+                );
+            string accessToken = new JwtSecurityTokenHandler().WriteToken(access);
+            string refreshToken = new JwtSecurityTokenHandler().WriteToken(refresh);
+            var token = new Token
+            {
+                accessToken = accessToken,
+                refreshToken = refreshToken,
+                user = account
+            };
+            await _tokenService.saveToken(token);
+            var user = new UserLoginResponse
+            {
+                id = account.id,
+                userName = account.userName,
+                email = account.email,
+                phoneNumber = account.phoneNumber,
+                isActive = account.isActive,
+                avatarLink = account.avatarLink,
+                avatarName = account.avatarName,
+                verifyContact = account.verifyContact,
+                verifyEmail = account.verifyEmail,
+                role = account.role
+            };
             LoginResponse response = new()
             {
-                user = account.Result,
+                user = user,
                 message = "Login successfully!",
-                token = accessToken
+                accessToken = accessToken,
+                refreshToken = refreshToken
+
             };
-            return Task.FromResult(response);
+            return response;
+        }
+        public async Task<LogoutResponse> Logout(int userId)
+        {
+            var account = await _userService.FindAccountById(userId);
+            if (account == null) { throw new AccountNotFoundException(); }
+            var response = new LogoutResponse
+            {
+                message = "Log out successfully!"
+            };
+            return response;
         }
     }
 }

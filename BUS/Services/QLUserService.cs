@@ -34,8 +34,8 @@ namespace BUS.Services
         }
         public async Task Register(RegisterRequest newUser)
         {
-            var account = _userService.FindAccountByEmail(newUser.email);
-            if(account != null) { throw new EmailAlreadyExistExCeption(); }
+            //var account = _userService.FindAccountByEmail(newUser.email);
+            //if(account != null) { throw new EmailAlreadyExistExCeption(); }
             string passwordHash = BCrypt.Net.BCrypt.HashPassword(newUser.password);
             User user = new()
             {
@@ -111,9 +111,26 @@ namespace BUS.Services
         {
             var account = await _userService.FindAccountById(userId);
             if (account == null) { throw new AccountNotFoundException(); }
+            await _tokenService.deleteToken(userId);
             var response = new LogoutResponse
             {
                 message = "Log out successfully!"
+            };
+            return response;
+        }
+        public async Task<RefreshTokenResponse> RefreshToken(string token)
+        {
+            var refreshToken = await _tokenService.findByRefreshToken(token);
+            if(token != refreshToken||refreshToken == null)
+            {
+                throw new RefreshTokenWrongException();
+            }
+            // tạo mới access và refresh token
+            var response = new RefreshTokenResponse
+            {
+                accessToken = "dwd",
+                refreshToken = "cdsc",
+                message = "Get token success!"
             };
             return response;
         }

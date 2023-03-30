@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Utilities.Request
 {
-    public class LoginRequest
+    public class UpdateCategoryRequest
     {
         [Required]
-        public string? email { get; set; }
+        public int categoryId {  get; set; }
         [Required]
-        public string? password { get; set; }
+        public string? categoryName { get; set; }
     }
 }

@@ -13,6 +13,18 @@ namespace DAL
         public ShoppingCartContext(DbContextOptions<ShoppingCartContext> options) : base(options) { }
         public DbSet<User> Users { get; set; }
         public DbSet<Token> Tokens { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Voucher> Vouchers { get; set; }
+        public DbSet<ImageProduct> ImageProducts { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<PaymentMethod> PaymentMethods { get; set; }
+        public DbSet<Product> Products { get; set; }
+        public DbSet<VouchersOfOrder> VouchersOfOrders { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<ProductsOfCart> ProductsOfCarts { get; set; }
+        public DbSet<ProductsOfOrder> ProductsOfOrders { get; set; }
+        public DbSet<ProductsOfCategory> ProductsOfCategories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

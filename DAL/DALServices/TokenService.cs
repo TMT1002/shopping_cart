@@ -23,12 +23,14 @@ namespace DAL.DALServices
         }
         public async Task deleteToken(int userId)
         {
-            var tokens = await _context.Tokens.FirstOrDefaultAsync(t => t.id == 5);
-            if(tokens!=null)
-            {
-                _context.Tokens.Remove(tokens);
-            }
+            var tokens = await _context.Tokens.Where(t => t.userId == userId).ToListAsync();
+            _context.Tokens.RemoveRange(tokens);
             await _context.SaveChangesAsync();
+        }
+        public async Task<string> findByRefreshToken(string token)
+        {
+            var tokens = await _context.Tokens.FirstOrDefaultAsync(t => t.refreshToken == token);
+            return tokens.refreshToken;
         }
     }
 }

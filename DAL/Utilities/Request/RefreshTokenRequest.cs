@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace DAL.Utilities.Request
 {
-    public class LoginRequest
+    public class RefreshTokenRequest
     {
         [Required]
-        public string? email { get; set; }
+        public string? refreshToken { get; set; }
         [Required]
-        public string? password { get; set; }
+        public int userId { get; set; }
     }
 }

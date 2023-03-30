@@ -22,6 +22,10 @@ namespace Web.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 await _qLUserService.Register(newUser);
                 RegisterResponse response = new()
                 {
@@ -42,6 +46,10 @@ namespace Web.Controllers
         {
             try
             {
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
                 var account = await _qLUserService.Login(login);
                 return Ok(account);
             }
@@ -55,8 +63,29 @@ namespace Web.Controllers
         {
             try
             {
-                var account = await _qLUserService.Logout(logout.userId);
-                return Ok(account);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+                var response = await _qLUserService.Logout(logout.userId);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpPost("RefreshToken")]
+        public async Task<IActionResult> RefreshToken([FromBody] string token)
+        {
+            try
+            {
+                if(token == null)
+                {
+                    throw new BadHttpRequestException("RefreshToken is required");
+                }
+                var response = await _qLUserService.RefreshToken(token);
+                return Ok(response);
             }
             catch (Exception ex)
             {

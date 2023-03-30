@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL.IDALServices
 {
-    public interface ITokenService
+    public interface ICategoryService
     {
-        Task saveToken(Token token);
-        Task deleteToken(int userId);
-        Task<string> findByRefreshToken(string token);
+        Task Add(Category category);
+        Task Update(Category category);
+        Task<Category?> GetById(int id);
     }
 }

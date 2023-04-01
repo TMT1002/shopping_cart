@@ -62,5 +62,52 @@ namespace BUS.Services
             }
             throw new ProductNotFoundException();
         }
+        public async Task<CreateProductResponse> updateById(int productId, UpdateProductRequest updateProduct)
+        {
+            var existingProduct = await _productService.getById(productId);
+            if (existingProduct != null)
+            {
+                if(updateProduct.nameProduct != null)
+                {
+                    existingProduct.nameProduct = updateProduct.nameProduct;
+                }
+                if(updateProduct.description != null)
+                {
+                    existingProduct.description = updateProduct.description;
+                }
+                if(updateProduct.stockQuantity != null)
+                {
+                    existingProduct.stockQuantity = updateProduct.stockQuantity.Value;
+                }
+                if(updateProduct.price != null)
+                {
+                    existingProduct.price = updateProduct.price.Value;
+                }
+                if(updateProduct.brand != null)
+                {
+                    existingProduct.brand = updateProduct.brand;
+                }
+                if(updateProduct.discountPrecent != null)
+                {
+                    existingProduct.discountPrecent = updateProduct.discountPrecent.Value;
+                }
+                if(updateProduct.thumbnailImage != null)
+                {
+                    existingProduct.thumbnailImage = updateProduct.thumbnailImage;
+                }
+                if(updateProduct.thumbnailImgName != null)
+                {
+                    existingProduct.thumbnailImgName = updateProduct.thumbnailImgName;
+                }
+                await _productService.update(existingProduct);
+                var response = new CreateProductResponse
+                {
+                    message = "Update product success!",
+                    product = existingProduct
+                };
+                return response;
+            }
+            throw new ProductNotFoundException();
+        }
     }
 }

@@ -26,5 +26,10 @@ namespace DAL.DALServices
             var product = await _context.Products.FirstOrDefaultAsync(p => p.Id == productId);
             return product;
         }
+        public async Task update(Product product)
+        {
+            _context.Products.Update(product);
+            await _context.SaveChangesAsync();
+        }
     }
 }

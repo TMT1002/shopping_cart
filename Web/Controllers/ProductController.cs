@@ -49,5 +49,24 @@ namespace Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPut("Update/{productId}")]
+        public async Task<IActionResult> updateById(int productId, [FromBody] UpdateProductRequest updateProduct)
+        {
+            try
+            {
+                if(updateProduct == null)
+                {
+                    throw new BadHttpRequestException("Can not update product");
+                } else
+                {
+                    var response = await _qLProductService.updateById(productId, updateProduct);
+                    return Ok(response);
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

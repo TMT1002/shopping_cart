@@ -12,5 +12,6 @@ namespace BUS.IServices
     public interface IQLProductService
     {
         Task<CreateProductResponse> add(CreateProductRequest product);
+        Task<GetProductResponse> getById(int id);
     }
 }

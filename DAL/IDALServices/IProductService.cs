@@ -10,5 +10,6 @@ namespace DAL.IDALServices
     public interface IProductService
     {
         Task add(Product product);
+        Task<Product?> getById(int productId);
     }
 }

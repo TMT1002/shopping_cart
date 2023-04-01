@@ -36,5 +36,18 @@ namespace Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpGet("{productId}")]
+        public async Task<IActionResult> getById(int productId)
+        {
+            try
+            {
+                var response = await _qLProductService.getById(productId);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

@@ -48,5 +48,19 @@ namespace BUS.Services
             }
             throw new CategoryNotFoundException();
         }
+        public async Task<GetProductResponse> getById(int id)
+        {
+            var existingProduct = await _productService.getById(id);
+            if(existingProduct != null)
+            {
+                var response = new GetProductResponse
+                {
+                    message = "Get product success!",
+                    product = existingProduct
+                };
+                return response;
+            }
+            throw new ProductNotFoundException();
+        }
     }
 }

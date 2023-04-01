@@ -63,6 +63,21 @@ namespace Web.Controllers
                 return BadRequest(ex.Message);
             }
         }
+        [HttpPost("Delete/{id}")]
+        [Authorize]
+        public async Task<IActionResult> Update(int id)
+        {
+            try
+            {
+                var response = await _qLCategoryService.DeleteCategory(id);
+                return Ok(response);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
 
     }
 }

@@ -53,5 +53,20 @@ namespace BUS.Services
             }
             throw new CategoryNotFoundException();
         }
+        public async Task<DeleteCategoryResponse> DeleteCategory(int id)
+        {
+            var existingCategory = await _categoryService.GetById(id);
+            if (existingCategory != null)
+            {
+                await _categoryService.Delete(existingCategory);
+                var response = new DeleteCategoryResponse
+                {
+                    message = "Update category success!"
+                };
+                return response;
+
+            }
+            throw new CategoryNotFoundException();
+        }
     }
 }

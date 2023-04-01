@@ -12,5 +12,6 @@ namespace DAL.IDALServices
         Task Add(Category category);
         Task Update(Category category);
         Task<Category?> GetById(int id);
+        Task Delete(Category category);
     }
 }

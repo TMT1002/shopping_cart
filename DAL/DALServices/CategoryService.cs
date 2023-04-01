@@ -31,6 +31,11 @@ namespace DAL.DALServices
             var result = await _context.Categories.FirstOrDefaultAsync(c => c.Id == id);
             return result;
         }
+        public async Task Delete(Category category)
+        {
+            _context.Categories.Remove(category);
+            await _context.SaveChangesAsync();
+        }
 
     }
 }

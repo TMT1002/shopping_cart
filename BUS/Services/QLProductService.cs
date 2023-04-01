@@ -109,5 +109,20 @@ namespace BUS.Services
             }
             throw new ProductNotFoundException();
         }
+        public async Task<DeleteProductResponse> deleteById(int id)
+        {
+            var existingProduct = await _productService.getById(id);
+            if (existingProduct != null)
+            {
+                await _productService.delete(existingProduct);
+                var response = new DeleteProductResponse
+                {
+                    message = "Delete product success!"
+                };
+                return response;
+
+            }
+            throw new ProductNotFoundException();
+        }
     }
 }

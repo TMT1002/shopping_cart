@@ -12,5 +12,6 @@ namespace DAL.IDALServices
         Task add(Product product);
         Task<Product?> getById(int productId);
         Task update(Product product);
+        Task delete(Product product);
     }
 }

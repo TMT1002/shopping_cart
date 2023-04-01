@@ -50,6 +50,7 @@ namespace Web.Controllers
             }
         }
         [HttpPut("Update/{productId}")]
+        [Authorize]
         public async Task<IActionResult> updateById(int productId, [FromBody] UpdateProductRequest updateProduct)
         {
             try
@@ -62,6 +63,20 @@ namespace Web.Controllers
                     var response = await _qLProductService.updateById(productId, updateProduct);
                     return Ok(response);
                 }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+        [HttpDelete("Delete/{productId}")]
+        [Authorize]
+        public async Task<IActionResult> deleteProduct(int productId)
+        {
+            try
+            {
+                var response = await _qLProductService.deleteById(productId);
+                return Ok(response);
             }
             catch (Exception ex)
             {

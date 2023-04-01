@@ -31,5 +31,10 @@ namespace DAL.DALServices
             _context.Products.Update(product);
             await _context.SaveChangesAsync();
         }
+        public async Task delete(Product product)
+        {
+            _context.Products.Remove(product);
+            await _context.SaveChangesAsync();
+        }
     }
 }

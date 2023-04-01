@@ -14,5 +14,6 @@ namespace BUS.IServices
         Task<CreateProductResponse> add(CreateProductRequest product);
         Task<GetProductResponse> getById(int id);
         Task<CreateProductResponse> updateById(int productId, UpdateProductRequest updateProduct);
+        Task<DeleteProductResponse> deleteById(int productId);
     }
 }

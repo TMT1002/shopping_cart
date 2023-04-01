@@ -68,5 +68,20 @@ namespace BUS.Services
             }
             throw new CategoryNotFoundException();
         }
+        public async Task<GetCategoryByIdResponse> GetCategoryById(int id)
+        {
+            var existingCategory = await _categoryService.GetById(id);
+            if (existingCategory != null)
+            {
+                var response = new GetCategoryByIdResponse
+                {
+                    message = "Get category success!",
+                    category = existingCategory
+                };
+                return response;
+
+            }
+            throw new CategoryNotFoundException();
+        }
     }
 }

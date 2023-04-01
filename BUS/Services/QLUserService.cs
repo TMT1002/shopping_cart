@@ -66,7 +66,7 @@ namespace BUS.Services
             var access = new JwtSecurityToken(
                 issuer: _configuration["Jwt:Issuer"],
                 audience: _configuration["Jwt:Audience"],
-                expires:DateTime.Now.AddMinutes(10),
+                expires:DateTime.Now.AddMinutes(100),
                 signingCredentials: signingCredential,
                 claims: claims
                 );

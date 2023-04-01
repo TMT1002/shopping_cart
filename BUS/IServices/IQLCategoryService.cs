@@ -13,5 +13,6 @@ namespace BUS.IServices
         Task<CreateCategoryResponse> AddCategory(Category category);
         Task<UpdateCategoryResponse> UpdateCategory(Category category);
         Task<DeleteCategoryResponse> DeleteCategory(int id);
+        Task<GetCategoryByIdResponse> GetCategoryById(int id);
     }
 }

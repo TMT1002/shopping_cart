@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace DAL.IDALServices
 {
     public interface IProductService
     {
+        Task add(Product product);
     }
 }

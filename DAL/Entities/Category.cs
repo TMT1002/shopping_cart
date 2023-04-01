@@ -13,7 +13,7 @@ namespace DAL.Entities
         [Key]
         public int Id { get; set; }
         public string? nameCategory { get; set; }
-        public ICollection<Product>? products { get; set; }
+        public virtual ICollection<Product>? products { get; set; }
         public ICollection<ProductsOfCategory>? productsOfCategories { get; set; }
     }
 }

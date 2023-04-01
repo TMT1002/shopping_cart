@@ -9,8 +9,13 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
 using Web.Middleware;
+using Google.Api;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 builder.Services.AddSwaggerGen(c =>
 {
@@ -27,6 +32,8 @@ builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ITokenService, TokenService>();
 builder.Services.AddScoped<IQLUserService,QLUserService>();
 builder.Services.AddScoped<IUserService,UserService>();
+builder.Services.AddScoped<IProductService, ProductService>();  
+builder.Services.AddScoped<IQLProductService, QLProductService>();
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

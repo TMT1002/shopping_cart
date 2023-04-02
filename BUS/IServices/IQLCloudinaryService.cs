@@ -1,4 +1,5 @@
-﻿using DAL.Utilities.Response;
+﻿using CloudinaryDotNet.Actions;
+using DAL.Utilities.Response;
 using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace BUS.IServices
     public interface IQLCloudinaryService
     {
         Task<UploadPhotoResponse> uploadPhoto(IFormFile file);
+        Task<DeletePhotoResponse> deletePhoto(string fileId);
     }
 }

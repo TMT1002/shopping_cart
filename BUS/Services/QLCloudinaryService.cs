@@ -1,4 +1,5 @@
 ﻿using BUS.IServices;
+using CloudinaryDotNet.Actions;
 using DAL.IDALServices;
 using DAL.Utilities.Response;
 using Microsoft.AspNetCore.Http;
@@ -22,9 +23,20 @@ namespace BUS.Services
             var result = await _photoService.AddPhotoAsync(file);
             var response = new UploadPhotoResponse
             {
+                publicId = result.PublicId,
                 message = "Upload photo success!",
-                photoName = file.Name,
+                photoName = result.DisplayName,
                 photoUrl = result.SecureUrl.ToString()
+            };
+            return response;
+        }
+        public async Task<DeletePhotoResponse> deletePhoto(string fileId)
+        {
+            var result = await _photoService.DeletePhotoAsync(fileId);
+            Console.WriteLine(result.Result.ToString());
+            var response = new DeletePhotoResponse
+            {
+                message = "Delete photo success"
             };
             return response;
         }

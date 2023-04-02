@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Utilities.Response
 {
-    public class UploadPhotoResponse
+    public class DeletePhotoResponse
     {
-        public string publicId { get; set; }
         public string message { get; set; }
-        public string photoName { get; set; }
-        public string photoUrl { get; set; }
     }
 }

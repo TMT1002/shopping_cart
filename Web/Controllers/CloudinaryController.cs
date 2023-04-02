@@ -30,5 +30,19 @@ namespace Web.Controllers
                 return BadRequest(ex.Message);
             }   
         }
+        [HttpDelete("Delete-photo")]
+     
+        public async Task<IActionResult> deletePhoto([FromQuery] string id)
+        {
+            try
+            {
+                var response = await _cloudinaryService.deletePhoto(id);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
     }
 }

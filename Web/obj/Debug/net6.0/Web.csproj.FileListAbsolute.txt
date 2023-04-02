@@ -291,3 +291,5 @@ D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\BCrypt.Net-Next.dll
 D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\Google.Api.CommonProtos.dll
 D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\Google.Protobuf.dll
 D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\CloudinaryDotNet.dll
+D:\FPT_Fresher\C#\Mock1\Shoppingcart\Web\bin\Debug\net6.0\Newtonsoft.Json.dll

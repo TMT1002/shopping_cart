@@ -11,6 +11,7 @@ using System.Text;
 using Web.Middleware;
 using Google.Api;
 using System.Text.Json.Serialization;
+using DAL.Utilities.Support;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,7 +35,12 @@ builder.Services.AddScoped<IQLUserService,QLUserService>();
 builder.Services.AddScoped<IUserService,UserService>();
 builder.Services.AddScoped<IProductService, ProductService>();  
 builder.Services.AddScoped<IQLProductService, QLProductService>();
+builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IQLCartService,  QLCartService>();
+builder.Services.AddScoped<IPhotoService, PhotoService>();
+builder.Services.AddScoped<IQLCloudinaryService, QLCloudinaryService>();
 
+builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("CloudinarySettings"));
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
